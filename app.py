@@ -1,3 +1,8 @@
+# for current datetime....
+import datetime
+time = datetime.datetime.now().strftime('%c')
+
+
 
 # This Code is Published by Tanbir Pradhan. Don't use it in your project.
 from random import randint
@@ -16,13 +21,17 @@ db = SQLAlchemy(app)
 
 class filedbs(db.Model):
    id = db.Column('file_id', db.Integer, primary_key = True)
+   Date = db.Column(db.String(10))
    Your_name = db.Column(db.String(40))
    Crush_name = db.Column(db.String(40))
+   Percentage = db.Column(db.Integer)
    
    
-   def __init__(self,Your_name,Crush_name):
+   def __init__(self,Your_name,Crush_name,Date,Percentage):
        self.Your_name = Your_name
-       self.Crush_name = Crush_name   
+       self.Crush_name = Crush_name
+       self.Date = Date 
+       self.Percentage = Percentage  
 
 
 #++++++++++++++++++++++++++++++    For Creating The Database db  ++++++++++++++++++++++++++++++++++
@@ -39,16 +48,29 @@ def GET_Value():
     if request.method == 'POST':
         Your_name = request.form.get("your_name")
         Crush_name = request.form.get("crush_name")
-
+        
         if (str(Your_name)!="" and str(Crush_name)!=""):
-            filedb = filedbs(Your_name,Crush_name)
+            percent = randint(90,100)
+            filedb = filedbs(Your_name,Crush_name,time,percent)
             db.session.add(filedb)
             db.session.commit()
-            percent = randint(90,100)
             return render_template('love.html', percent = percent )
 
 
     return render_template('love2.html')
+
+
+
+
+#++++++++++++++++++++++++++++  Table Route  ++++++++++++++++++++++++++++++++
+@app.route("/Table")
+def Show_Models():
+
+    filedb = filedbs.query.all()
+    filedb = list(filedb)
+    filedb = filedb[::-1]
+    return render_template("table.html", dbs = filedb)
+
 
 
 

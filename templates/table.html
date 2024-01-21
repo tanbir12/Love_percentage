@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='table.css') }}">
+    <title>Admin Table..</title>
+
+</head>
+<body>
+        
+<h2>Responsive Table</h2>
+<div class="table-wrapper">
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Sno.</th>
+            <th>Date And Time</th>
+            <th>User Name</th>
+            <th>Crush Name</th>
+            <th>Percentage</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        {% for item in dbs %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.Date }}</td>
+            <td>{{ item.Your_name }}</td>
+            <td>{{ item.Crush_name }}</td>
+            <td>{{ item.Percentage }}</td>
+        </tr>
+        {% endfor %}
+        <tbody>
+    </table>
+
+
+</div>    
+</body>
+</html>
+
+
+
+
