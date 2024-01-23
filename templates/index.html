@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- This Code is Published by Tanbir Pradhan. Don't use it in your project. -->
+
+<head>
+  <meta charset="UTF-8">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lovator</title>
+  <link rel="shortcut icon" href="{{url_for('static', filename='Bot1.png')}}" type="image/png" />
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+<body>
+  <div class="bodydiv">
+    <div class="upperdiv">
+      <div class="chatbotdiv">
+        <div class="chatimgdiv">
+          <img id="chatimg" src="{{url_for('static', filename='Floatingbot.gif')}}" alt="" srcset="">
+          <img id="hiimg" src="{{url_for('static', filename='Hi.gif')}}" alt="">
+        </div>
+
+        <div class="chattextdiv">
+          <img id="lovatorimg" src="{{url_for('static', filename='Lovator.png')}}" alt="" srcset="">
+          <div class="textdiv">
+            <p>
+              Lovator,<br>
+              is a fun and light-weight tool that attempts to estimate the compatibility between two individuals based on certain criteria or input data. Keep in mind that these calculators are not scientifically accurate and should be taken with a grain of salt.
+              <br>
+              It is an  "AI-based" love calculator which use artificial intelligence algorithms to analyze various factors and provide a compatibility score between two individuals.
+            </p>
+
+            <button id="letsgo" onclick="Scrolldown()">Let's go</button>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <form method="post" >
+    <div class="center">
+        <div class="form-input">
+          <h5>... CALCULATE ...</h5>
+            <div class="model_div">
+              <h3>... YOU ...</h3>
+              <input type="text" name="your_name" id="model_link" placeholder="Enter your name . . ." required>
+              <div class="dobdiv">
+                <h4>D.O.B : </h4>
+                <input type="date" name="" class="birthday">
+              </div>
+              <div class="dobdiv">
+                <input type="radio" class="gender" name="gender1" value="male"><h6>Male</h6>
+                <input type="radio" class="gender" name="gender1" value="female" required><h6>Female</h6>
+              </div>
+              </div>
+
+
+            <div class="model_div">
+              <h3>... CRUSH ...</h3>
+              <input type="text" name="crush_name" id="model_link" placeholder="Enter crush name . . ." required>
+              <div class="dobdiv">
+                <h4>D.O.B : </h4>
+                <input type="date" name="" class="birthday">
+              </div>
+              <div class="dobdiv">
+                <input type="radio" class="gender" name="gender2" value="male"><h6>Male</h6>
+                <input type="radio" class="gender" name="gender2" value="female" required><h6>Female</h6>
+              </div>
+            
+            </div>
+            <div class="model_div">
+              
+              <p>Note : D.O.B are only for better result. (optional)</p>
+                <button class="btn" type="submit">Submit</button>
+            </div>
+        </div>
+        <a class="txt1" href="">
+          Copyright &#169 2024 Scimuphile Lab,  India. 
+          <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+        </a>
+    </div>
+    </form> 
+
+<script src="{{url_for('static', filename='main.js')}}"></script>
+</body>
+</html>

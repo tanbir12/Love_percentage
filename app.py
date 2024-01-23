@@ -35,8 +35,8 @@ class filedbs(db.Model):
 
 
 #++++++++++++++++++++++++++++++    For Creating The Database db  ++++++++++++++++++++++++++++++++++
-# with app.app_context():
-#         db.create_all()
+with app.app_context():
+        db.create_all()
 
 
 
@@ -57,7 +57,7 @@ def GET_Value():
             return render_template('love.html', percent = percent )
 
 
-    return render_template('love2.html')
+    return render_template('index.html')
 
 
 

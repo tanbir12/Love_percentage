@@ -1,0 +1,220 @@
+body {
+  margin:0px;
+  padding: 0px;
+  height: 1750px;
+  background: #ecf0f3;
+}
+.bodydiv{
+    width:100%;
+    min-height: 950px;
+    background-color: rgba(255, 0, 115, 0.188);
+}
+
+.upperdiv {
+    max-width: 350px;
+    min-height: 950px;
+    margin: 0px auto;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.chatbotdiv{
+    width: 100%;
+    height: 700px;
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.chatimgdiv{
+    max-width: 80%;
+    height: 250px;
+}
+
+#chatimg{
+    width: 180px;
+    position: relative;
+    top: 0%;
+    left: 14%;
+}
+#hiimg{
+    width: 70px;
+    position: relative;
+    bottom: 70%;
+    left: 10%;
+}
+.chattextdiv{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#lovatorimg{
+    width: 200px;
+    filter: drop-shadow(3px 6px 4px #7e3560);
+}
+
+.textdiv{
+    width: 90%;
+    height: 80%;
+    margin-top: 50px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgba(255, 251, 238, 0.663);
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #b477a0d5, -13px -13px 20px #fddaf0;
+
+}
+
+.textdiv p{
+    font-size: 16px;
+    font-family: sans-serif;
+    color: rgba(0, 0, 0, 0.712);
+    text-align: center;
+    line-height: 20px;
+}
+
+.textdiv button{
+    width: 140px;
+    height: 45px;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: 550;
+    color: rgba(0, 0, 0, 0.662);
+    border: 2px solid rgb(238, 238, 238);
+    border-radius: 10px;
+    background-color: rgba(255, 240, 250, 0.656);
+    box-shadow: 4px 6px 10px rgb(190, 133, 170);
+}
+.textdiv button:active{
+    background-color: transparent;
+    box-shadow: 4px 6px 10px rgb(255, 187, 231);
+}
+
+/* +++++++++++++++++++  White Page  +++++++++++++++++++ */
+
+.center {
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+}
+
+.form-input {
+    max-width: 350px;
+    min-height: 450px;
+    margin: 80px 0px;
+    padding: 50px 50px 30px 50px;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+}
+
+.form-input h5{
+    font-family: sans-serif;
+    color: #ff61b5b6;
+    font-size: 28px;
+    margin: 10px 0px;
+}
+
+.model_div{
+  width: 100%;
+  display: flex;
+  padding: 0px 10px 10px 10px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #e3e7ec;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #b1b1b1,s
+        -3px -3px 3px #fff;
+}
+.model_div h3{
+  font-family: sans-serif;
+  color: #ff61b5b6;
+  font-size: 18px;
+} 
+
+.dobdiv{
+    width: 100%;
+    height: 20px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dobdiv h4{
+    font-family: sans-serif;
+    color: #ff61b5b6;
+    font-size: 18px;
+}
+
+.dobdiv h6{
+    font-family: sans-serif;
+    color: #ff61b5b6;
+    font-size: 12px;
+}
+.model_div p{
+    font-size: 7px;
+    font-family: sans-serif;
+    color: #ff61b5b6;
+}
+
+.birthday{
+    width: 100px;
+    height: 30px;
+    padding: 0px 10px;
+    margin-left: 8px;
+    color: rgba(15, 15, 15, 0.718);
+    font-size: 12px;
+    text-transform: uppercase;
+    background-color: rgba(255, 0, 115, 0.188);
+    border: 2px solid rgba(236, 236, 236, 0.797);
+    border-radius: 10px;
+    box-shadow: 4px 6px 10px rgb(190, 133, 170);
+}
+
+#model_link{
+  width: 90%;
+  height: 3.5vh;
+  display: block;
+  font-family: sans-serif;
+  color: rgba(252, 112, 187, 0.878);  
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 10px;
+  border-radius: 8px;
+  border: 2px solid  rgba(0, 0, 0, 0.203);    
+  box-shadow: inset 2px 2px 4px #cbced1, inset -4px -4px 4px #fff;
+}
+::placeholder{
+    color: #fd82c4b3;
+    font-size: 14px;
+}
+.btn{
+  width: 40%;
+  height: 35px;
+  font-weight: 550;
+  border-radius: 15px;
+  color: rgba(43, 42, 42, 0.718);
+  background-color:  rgba(255, 0, 115, 0.188);
+  border: none;
+  box-shadow: 3px 3px 3px #b1b1b1,
+        -3px -3px 3px #fff;
+}
+.btn:active{
+  background-color: #fd96de;  
+}
+.txt1{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.477);
+}   
