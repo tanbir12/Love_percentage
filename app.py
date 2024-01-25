@@ -8,13 +8,14 @@ time = datetime.datetime.now().strftime('%c')
 from random import randint
 from flask import Flask , render_template , request , redirect ,url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate,migrate
 app = Flask(__name__)
 
 
 
 #+++++++++++++++++++++++++++ CONFIGURE ++++++++++++++++++++++++++++++++++++++++++
 app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lovepercentage.sqlite3'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #++++++++++++++++++++++++++++ DATABASE AREA ++++++++++++++++++++++++++++++++++++++
 db = SQLAlchemy(app)
@@ -35,9 +36,11 @@ class filedbs(db.Model):
 
 
 #++++++++++++++++++++++++++++++    For Creating The Database db  ++++++++++++++++++++++++++++++++++
-with app.app_context():
-        db.create_all()
+# with app.app_context():
+#         db.create_all()
 
+
+migrate = Migrate(app,db)
 
 
 #++++++++++++++++++++++++++++  Home Page Route  ++++++++++++++++++++++++++++++++
