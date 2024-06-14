@@ -58,9 +58,9 @@ body {
 
 .textdiv{
     width: 90%;
-    height: 80%;
+    height: 85%;
     margin-top: 50px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,16 +72,16 @@ body {
 
 .textdiv p{
     font-size: 16px;
-    font-family: sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgba(0, 0, 0, 0.712);
     text-align: center;
-    line-height: 20px;
+    line-height: 25px;
 }
 
 .textdiv button{
     width: 140px;
     height: 45px;
-    margin-top: 25px;
+    margin-top: 10px;
     font-size: 18px;
     font-weight: 550;
     color: rgba(0, 0, 0, 0.662);

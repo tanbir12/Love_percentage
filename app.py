@@ -8,7 +8,6 @@ time = datetime.datetime.now().strftime('%c')
 from random import randint
 from flask import Flask , render_template , request , redirect ,url_for
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate,migrate
 app = Flask(__name__)
 
 
@@ -40,7 +39,6 @@ class filedbs(db.Model):
 #         db.create_all()
 
 
-migrate = Migrate(app,db)
 
 
 #++++++++++++++++++++++++++++  Home Page Route  ++++++++++++++++++++++++++++++++
@@ -53,11 +51,12 @@ def GET_Value():
         Crush_name = request.form.get("crush_name")
         
         if (str(Your_name)!="" and str(Crush_name)!=""):
-            percent = randint(90,100)
+            percent = randint(60,100)
+            round_percent = (1-(percent/100))*440
             filedb = filedbs(Your_name,Crush_name,time,percent)
             db.session.add(filedb)
             db.session.commit()
-            return render_template('love.html', percent = percent )
+            return render_template('love.html', percent = percent , round_percent = round_percent )
 
 
     return render_template('index.html')
