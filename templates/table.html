@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovator Table</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='Bot1.png')}}" type="image/png" />
+    <link rel="stylesheet" href="{{url_for('static', filename='table.css')}}">
+</head>
+<body>
+    
+
+    <section>
+        <!--for demo wrap-->
+        <h1>Lovator Data</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Sno.</th>
+                <th>Date & Time</th>
+                <th>User_name</th>
+                <th>Crush_name</th>
+                <th>Percentage</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              {% for db in dbs %}
+                <tr>
+                  <td>{{ db.id }}</td>
+                  <td>{{ db.Date }} </td>
+                  <td>{{ db.Your_name }}</td>
+                  <td>{{ db.Crush_name }}</td>
+                  <td>{{ db.Percentage }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+
+
+      <script>
+        $(window).on("load resize ", function() {
+        var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+        $('.tbl-header').css({'padding-right':scrollWidth});
+        }).resize();
+      </script>
+</body>
+</html>
