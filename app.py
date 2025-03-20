@@ -7,37 +7,21 @@ time = datetime.datetime.now().strftime('%c')
 # This Code is Published by Tanbir Pradhan. Don't use it in your project.
 from random import randint
 from flask import Flask , render_template , request , redirect ,url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask_pymongo import PyMongo
+
 app = Flask(__name__)
 
 
 
 #+++++++++++++++++++++++++++ CONFIGURE ++++++++++++++++++++++++++++++++++++++++++
-app.config ['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lovepercentage.sqlite3'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['MONGO_URI'] = 'mongodb+srv://pradhantanbir:Jv7Hq8bsX9MAwfw4@cluster0.m0d6k.mongodb.net/Lovator?retryWrites=true&w=majority'  
+# Update with your MongoDB URI
+mongo = PyMongo(app)
+
 
 #++++++++++++++++++++++++++++ DATABASE AREA ++++++++++++++++++++++++++++++++++++++
-db = SQLAlchemy(app)
-
-class filedbs(db.Model):
-   id = db.Column('file_id', db.Integer, primary_key = True)
-   Date = db.Column(db.String(10))
-   Your_name = db.Column(db.String(40))
-   Crush_name = db.Column(db.String(40))
-   Percentage = db.Column(db.Integer)
-   
-   
-   def __init__(self,Your_name,Crush_name,Date,Percentage):
-       self.Your_name = Your_name
-       self.Crush_name = Crush_name
-       self.Date = Date 
-       self.Percentage = Percentage  
-
-
-#++++++++++++++++++++++++++++++    For Creating The Database db  ++++++++++++++++++++++++++++++++++
-# with app.app_context():
-#         db.create_all()
-
+# Remove the SQLAlchemy model and replace with a dictionary-based approach
+# No explicit model class is needed for MongoDB
 
 
 
@@ -53,9 +37,14 @@ def GET_Value():
         if (str(Your_name)!="" and str(Crush_name)!=""):
             percent = randint(60,100)
             round_percent = (1-(percent/100))*440
-            filedb = filedbs(Your_name,Crush_name,time,percent)
-            db.session.add(filedb)
-            db.session.commit()
+            # Insert the data into MongoDB
+            mongo.db.love_data.insert_one({
+                'Your_name': Your_name,
+                'Crush_name': Crush_name,
+                'Date': time,
+                'Percentage': percent
+            })
+
             return render_template('love.html', percent = percent , round_percent = round_percent )
 
 
@@ -68,9 +57,10 @@ def GET_Value():
 @app.route("/Table")
 def Show_Models():
 
-    filedb = filedbs.query.all()
+    filedb = mongo.db.love_data.find()
     filedb = list(filedb)
-    filedb = filedb[::-1]
+    filedb = filedb[::-1]  # Reverse the list for display
+
     return render_template("table.html", dbs = filedb)
 
 
@@ -78,5 +68,3 @@ def Show_Models():
 
 if __name__=="__main__":
     app.run(debug=True, port=8000)
-
-

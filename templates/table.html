@@ -31,7 +31,7 @@
             <tbody>
               {% for db in dbs %}
                 <tr>
-                  <td>{{ db.id }}</td>
+                  <td>{{ loop.index }}</td>
                   <td>{{ db.Date }} </td>
                   <td>{{ db.Your_name }}</td>
                   <td>{{ db.Crush_name }}</td>
