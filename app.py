@@ -2,8 +2,7 @@
 import datetime
 time = datetime.datetime.now().strftime('%c')
 
-
-
+import requests
 # This Code is Published by Tanbir Pradhan. Don't use it in your project.
 from random import randint
 from flask import Flask , render_template , request , redirect ,url_for
@@ -23,6 +22,17 @@ mongo = PyMongo(app)
 # Remove the SQLAlchemy model and replace with a dictionary-based approach
 # No explicit model class is needed for MongoDB
 
+def get_locaction_ip():
+    try:
+        ip = request.remote_addr
+        if ip == '127.0.0.1':
+            ip = '8.8.8.8'
+        response = requests.get(f'https://ipinfo.io/{ip}/json')
+
+        return f"IP: {ip}, data.get('city','unknown'),data.get('regionName'), data.get('country')"
+
+    except :
+        return "None"
 
 
 #++++++++++++++++++++++++++++  Home Page Route  ++++++++++++++++++++++++++++++++
@@ -30,6 +40,8 @@ mongo = PyMongo(app)
 @app.route("/",methods = ['GET','POST'])
 def GET_Value():
 
+    loc = get_locaction_ip()
+    referer = request.headers.get('Referer')
     if request.method == 'POST':
         Your_name = request.form.get("your_name")
         Crush_name = request.form.get("crush_name")
@@ -42,7 +54,9 @@ def GET_Value():
                 'Your_name': Your_name,
                 'Crush_name': Crush_name,
                 'Date': time,
-                'Percentage': percent
+                'Percentage': percent,
+                'UserData' : loc,
+                'Referer' : referer
             })
 
             return render_template('love.html', percent = percent , round_percent = round_percent )
