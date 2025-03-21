@@ -24,11 +24,11 @@ mongo = PyMongo(app)
 
 def get_locaction_ip():
     try:
-        ip = request.remote_addr
-        if ip == '127.0.0.1':
-            ip = '8.8.8.8'
-        response = requests.get(f'https://ipinfo.io/{ip}/json')
-
+        ip = request.headers.get('X-Forwarded-For').split(',')[0]
+        if ip != '127.0.0.1':
+            response = requests.get(f'https://ipinfo.io/{ip}/json')
+            data = response.json()
+            print(data)
         return f"IP: {ip}, data.get('city','unknown'),data.get('regionName'), data.get('country')"
 
     except :
