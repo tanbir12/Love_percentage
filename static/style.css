@@ -89,6 +89,7 @@ body {
     border-radius: 10px;
     background-color: rgba(255, 240, 250, 0.656);
     box-shadow: 4px 6px 10px rgb(190, 133, 170);
+    cursor: pointer;
 }
 .textdiv button:active{
     background-color: transparent;
@@ -208,6 +209,7 @@ body {
   color: rgba(43, 42, 42, 0.718);
   background-color:  rgba(255, 0, 115, 0.188);
   border: none;
+  cursor: pointer;
   box-shadow: 3px 3px 3px #b1b1b1,
         -3px -3px 3px #fff;
 }
